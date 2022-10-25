@@ -1,0 +1,87 @@
+ets Jan  8 2013,rst cause:2, boot mode:(3,6)
+
+load 0x40100000, len 7536, room 16
+tail 0
+chksum 0xa9
+load 0x3ffe8408, len 24, room 8
+tail 0
+chksum 0x10
+load 0x3ffe8420, len 3472, room 8
+tail 8
+chksum 0x2e
+csum 0x2e
+I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
+I (43) boot: compile time 18:42:00
+I (44) boot: SPI Speed      : 40MHz
+I (50) boot: SPI Mode       : DIO
+I (57) boot: SPI Flash Size : 1MB
+I (63) boot: Partition Table:
+I (68) boot: ## Label            Usage          Type ST Offset   Length
+I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
+I (114) boot: End of partition table
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e58 ( 89688) map
+I (171) esp_image: segment 1: paddr=0x00025e70 vaddr=0x40225e68 size=0x05994 ( 22932) map
+I (182) esp_image: segment 2: paddr=0x0002b80c vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (183) esp_image: segment 3: paddr=0x0002bbf0 vaddr=0x40100000 size=0x00080 (   128) load
+I (196) esp_image: segment 4: paddr=0x0002bc78 vaddr=0x40100080 size=0x04558 ( 17752) load
+I (217) boot: Loaded app from partition at offset 0x10000
+I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (242) main: Turning LED ON
+
+I (744) main: The LED Status: 1
+
+I (746) main: Turning LED OFF
+
+I (1741) main: The LED Status: 0
+
+I (1742) main: Turning LED ON
+
+I (2244) main: Turning LED OFF
+
+I (2741) main: The LED Status: 0
+
+I (3241) main: Turning LED ON
+
+I (3741) main: The LED Status: 1
+
+I (3742) main: Turning LED OFF
+
+I (4741) main: The LED Status: 0
+
+I (4742) main: Turning LED ON
+
+I (5244) main: Turning LED OFF
+
+I (5741) main: The LED Status: 0
+
+I (6241) main: Turning LED ON
+
+I (6741) main: The LED Status: 1
+
+I (6742) main: Turning LED OFF
+
+I (7741) main: The LED Status: 0
+
+I (7742) main: Turning LED ON
+
+I (8244) main: Turning LED OFF
+
+I (8741) main: The LED Status: 0
+
+I (9241) main: Turning LED ON
+
+I (9741) main: The LED Status: 1
+
+I (9742) main: Turning LED OFF
+
+I (10742) main: The LED Status: 0
+
+I (10743) main: Turning LED ON
+
+I (11245) main: Turning LED OFF
+
+I (11742) main: The LED Status: 0
+
+
