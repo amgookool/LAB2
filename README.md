@@ -14,3 +14,16 @@ The FreeRTOSConfig.h file specifies the defaults for the FreeRTOS kernel. This f
 
 ## Part 2
 
+
+
+## Github Usage
+
+I considered that labratory exercise as the repository itself. I determined that there are four parts to this excercise which are:
+
+1. P1 and P2
+1. Excercise/Question 1
+1. Excercise/Question 2
+1. Excercise/Question 3
+
+Each part is structured as a branch on the github repository. Hence to change between the different parts of the lab excercise, the switching of the appropiate branch is required.
+
