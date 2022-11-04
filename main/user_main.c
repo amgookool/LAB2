@@ -31,6 +31,8 @@ void vApplicationIdleHook(void);           // Idle Hook Task function for puttin
 
 static const char *TAG = "MAIN";
 
+void vTaskGetRunTimeStats(char *writeBuffer);
+
 SemaphoreHandle_t mutex_handle = NULL; // Handler for Mutex -> thing that controls which function access resource (GPIO2)
 
 void app_main(void)
@@ -48,12 +50,23 @@ void app_main(void)
     // Creating Mutex
     mutex_handle = xSemaphoreCreateMutex();
 
+    // Run Time Stats Buffer
+    static char buffer[1500];
+
     if (mutex_handle != NULL)
     {
         xTaskCreate(led_on, "led_on_task", 1024, NULL, LOW_PRIORITY, NULL);      // RTOS task instance to set GPIO2 to HIGH
         xTaskCreate(led_off, "led_off_task", 1024, NULL, MEDIUM_PRIORITY, NULL); // RTOS task instance to set GPIO2 to LOW
     }
     xTaskCreate(status_message, "status_message_task", 1024, NULL, HIGH_PRIORITY, NULL); // RTOS task instance to display status of GPIO2 pin
+    
+    vTaskGetRunTimeStats(buffer);
+    
+    // print output of runtime function
+    printf("Task            Abs. Time       %%Time \n");
+    printf("---------------------------------------\n");
+    printf(buffer, "\n\n");
+    
     // Heap memory management
     for (;;)
         ;

@@ -1,9 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-8b7dd34962d1029e80f140ddaaa58c26b9797ff7 refs/heads/P1-P2
-cb4e93c323451a812238d034f09bac32a619bbc0 refs/heads/Question1
-5d6f5bcec470f85687f0188f253421dd984c1293 refs/heads/Question2
-fe757b19e604dc00fdfcc983fe8350469be5eebf refs/heads/Question3
-861aba9845e1a0a39cd7415ec03ed67797a39937 refs/remotes/origin/P1-P2
-a393bc6e93a854678ef2b48adba2246daff79bc3 refs/remotes/origin/Question1
-6a7ffa6f29e89141a8f56da6449e1c4f820f7e98 refs/remotes/origin/Question2
-fe757b19e604dc00fdfcc983fe8350469be5eebf refs/remotes/origin/Question3
