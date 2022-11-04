@@ -1,5 +1,5 @@
 ###################################################### a) Round Robin Scheduling ####################################################################################
-ets Jan  8 2013,rst cause:2, boot mode:(3,7)
+ets Jan  8 2013,rst cause:2, boot mode:(3,6)
 
 load 0x40100000, len 7536, room 16
 tail 0
@@ -9,10 +9,10 @@ tail 0
 chksum 0x10
 load 0x3ffe8420, len 3472, room 8
 tail 8
-chksum 0x2b
-csum 0x2b
+chksum 0x2a
+csum 0x2a
 I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
-I (43) boot: compile time 19:12:23
+I (43) boot: compile time 18:31:11
 I (44) boot: SPI Speed      : 40MHz
 I (50) boot: SPI Mode       : DIO
 I (57) boot: SPI Flash Size : 1MB
@@ -22,73 +22,115 @@ I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
 I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
 I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
 I (114) boot: End of partition table
-I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e60 ( 89696) map
-I (171) esp_image: segment 1: paddr=0x00025e78 vaddr=0x40225e70 size=0x05994 ( 22932) map
-I (182) esp_image: segment 2: paddr=0x0002b814 vaddr=0x3ffe8000 size=0x003dc (   988) load
-I (183) esp_image: segment 3: paddr=0x0002bbf8 vaddr=0x40100000 size=0x00080 (   128) load
-I (196) esp_image: segment 4: paddr=0x0002bc80 vaddr=0x40100080 size=0x04558 ( 17752) load
-I (217) boot: Loaded app from partition at offset 0x10000
-I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
-I (251) main: Turning LED ON
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x1672c ( 91948) map
+I (172) esp_image: segment 1: paddr=0x00026744 vaddr=0x4022673c size=0x05a04 ( 23044) map
+I (183) esp_image: segment 2: paddr=0x0002c150 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (184) esp_image: segment 3: paddr=0x0002c534 vaddr=0x40100000 size=0x00080 (   128) load
+I (197) esp_image: segment 4: paddr=0x0002c5bc vaddr=0x40100080 size=0x04590 ( 17808) load
+I (218) boot: Loaded app from partition at offset 0x10000
+I (239) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (241) main: Turning LED ON
 
-I (261) main: The LED Status: 1
+I (744) main: Turning LED OFF
 
-I (761) main: Turning LED OFF
+I (1245) main: The LED Status: 0
 
-I (1262) main: The LED Status: 0
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14057           1
+IDLE            0               <1
+led_off_task    501191          42
+status_message_ 1192            <1
+led_on_task     502682          43
+Tmr Svc         148685          12
 
-I (1751) main: Turning LED ON
+I (1743) main: Turning LED ON
 
-I (2261) main: Turning LED OFF
+I (2243) main: The LED Status: 1
 
-I (2271) main: The LED Status: 0
+I (2244) main: Turning LED OFF
 
-I (3251) main: Turning LED ON
+I (3243) main: The LED Status: 0
 
-I (3281) main: The LED Status: 1
+I (3244) main: Turning LED ON
 
-I (3761) main: Turning LED OFF
+I (3745) main: Turning LED OFF
 
-I (4281) main: The LED Status: 0
+I (4243) main: The LED Status: 0
 
-I (4751) main: Turning LED ON
+I (4743) main: Turning LED ON
 
-I (5261) main: Turning LED OFF
+I (5243) main: The LED Status: 1
 
-I (5291) main: The LED Status: 0
+I (5244) main: Turning LED OFF
 
-I (6251) main: Turning LED ON
+I (6243) main: The LED Status: 0
 
-I (6301) main: The LED Status: 1
+I (6244) main: Turning LED ON
 
-I (6761) main: Turning LED OFF
+I (6743) main: Turning LED OFF
 
-I (7301) main: The LED Status: 0
+I (7243) main: The LED Status: 0
 
-I (7751) main: Turning LED ON
+I (7743) main: Turning LED ON
 
-I (8261) main: Turning LED OFF
+I (8243) main: The LED Status: 1
 
-I (8311) main: The LED Status: 0
+I (8244) main: Turning LED OFF
 
-I (9251) main: Turning LED ON
+I (9243) main: The LED Status: 0
 
-I (9321) main: The LED Status: 1
+I (9244) main: Turning LED ON
 
-I (9761) main: Turning LED OFF
+I (9745) main: Turning LED OFF
 
-I (10322) main: The LED Status: 0
+I (10244) main: The LED Status: 0
 
-I (10752) main: Turning LED ON
+I (10744) main: Turning LED ON
 
-I (11262) main: Turning LED OFF
+I (11244) main: The LED Status: 1
 
-I (11332) main: The LED Status: 0
+I (11245) main: Turning LED OFF
+
+I (12244) main: The LED Status: 0
+
+I (12245) main: Turning LED ON
+
+I (12746) main: Turning LED OFF
+
+I (13244) main: The LED Status: 0
+
+I (13744) main: Turning LED ON
+
+I (14244) main: The LED Status: 1
+
+I (14245) main: Turning LED OFF
+
+I (15244) main: The LED Status: 0
+
+I (15245) main: Turning LED ON
+
+I (15746) main: Turning LED OFF
+
+I (16244) main: The LED Status: 0
+
+I (16744) main: Turning LED ON
+
+I (17244) main: The LED Status: 1
+
+I (17245) main: Turning LED OFF
+
+I (18244) main: The LED Status: 0
+
+I (18245) main: Turning LED ON
+
+I (18746) main: Turning LED OFF
+
+
 
 ###################################################### b) Priority Inheritance ####################################################################################
 
 -----------------------   1. Task1 -> Task2 -> Task3 --------------------------
-
 ets Jan  8 2013,rst cause:2, boot mode:(3,6)
 
 load 0x40100000, len 7536, room 16
@@ -99,10 +141,10 @@ tail 0
 chksum 0x10
 load 0x3ffe8420, len 3472, room 8
 tail 8
-chksum 0x2b
-csum 0x2b
+chksum 0x2a
+csum 0x2a
 I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
-I (43) boot: compile time 19:12:23
+I (43) boot: compile time 18:31:11
 I (44) boot: SPI Speed      : 40MHz
 I (50) boot: SPI Mode       : DIO
 I (57) boot: SPI Flash Size : 1MB
@@ -112,115 +154,107 @@ I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
 I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
 I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
 I (114) boot: End of partition table
-I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e64 ( 89700) map
-I (171) esp_image: segment 1: paddr=0x00025e7c vaddr=0x40225e74 size=0x05994 ( 22932) map
-I (182) esp_image: segment 2: paddr=0x0002b818 vaddr=0x3ffe8000 size=0x003dc (   988) load
-I (183) esp_image: segment 3: paddr=0x0002bbfc vaddr=0x40100000 size=0x00080 (   128) load
-I (196) esp_image: segment 4: paddr=0x0002bc84 vaddr=0x40100080 size=0x04558 ( 17752) load
-I (217) boot: Loaded app from partition at offset 0x10000
-I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x1672c ( 91948) map
+I (172) esp_image: segment 1: paddr=0x00026744 vaddr=0x4022673c size=0x05a04 ( 23044) map
+I (183) esp_image: segment 2: paddr=0x0002c150 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (184) esp_image: segment 3: paddr=0x0002c534 vaddr=0x40100000 size=0x00080 (   128) load
+I (197) esp_image: segment 4: paddr=0x0002c5bc vaddr=0x40100080 size=0x04590 ( 17808) load
+I (218) boot: Loaded app from partition at offset 0x10000
+I (239) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
 I (241) main: Turning LED ON
 
 I (744) main: Turning LED OFF
 
-I (1251) main: The LED Status: 0
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             13969           1
+status_message_ 0               <1
+IDLE            0               <1
+led_off_task    501192          42
+led_on_task     502685          43
+Tmr Svc         148685          12
 
-I (1741) main: Turning LED ON
+I (1263) main: The LED Status: 0
 
-I (2242) main: Turning LED OFF
-
-I (2744) main: The LED Status: 0
-
-I (3241) main: Turning LED ON
-
-I (3742) main: Turning LED OFF
-
-I (4244) main: The LED Status: 0
-
-I (4741) main: Turning LED ON
-
-I (5242) main: Turning LED OFF
-
-I (5744) main: The LED Status: 0
-
-I (6241) main: Turning LED ON
-
-I (6742) main: Turning LED OFF
-
-I (7244) main: The LED Status: 0
-
------------------------   2. Task1 -> Task3 -> Task2 --------------------------
-
-ets Jan  8 2013,rst cause:2, boot mode:(3,6)
-
-load 0x40100000, len 7536, room 16
-tail 0
-chksum 0xa9
-load 0x3ffe8408, len 24, room 8
-tail 0
-chksum 0x10
-load 0x3ffe8420, len 3472, room 8
-tail 8
-chksum 0x2b
-csum 0x2b
-I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
-I (43) boot: compile time 19:12:23
-I (44) boot: SPI Speed      : 40MHz
-I (50) boot: SPI Mode       : DIO
-I (57) boot: SPI Flash Size : 1MB
-I (63) boot: Partition Table:
-I (68) boot: ## Label            Usage          Type ST Offset   Length
-I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
-I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
-I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
-I (114) boot: End of partition table
-I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e64 ( 89700) map
-I (171) esp_image: segment 1: paddr=0x00025e7c vaddr=0x40225e74 size=0x05994 ( 22932) map
-I (182) esp_image: segment 2: paddr=0x0002b818 vaddr=0x3ffe8000 size=0x003dc (   988) load
-I (183) esp_image: segment 3: paddr=0x0002bbfc vaddr=0x40100000 size=0x00080 (   128) load
-I (196) esp_image: segment 4: paddr=0x0002bc84 vaddr=0x40100080 size=0x04558 ( 17752) load
-I (217) boot: Loaded app from partition at offset 0x10000
-I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
-I (241) main: Turning LED ON
-
-I (744) main: The LED Status: 1
-
-I (746) main: Turning LED OFF
-
-I (1741) main: Turning LED ON
-
-I (2242) main: The LED Status: 1
+I (1743) main: Turning LED ON
 
 I (2244) main: Turning LED OFF
 
-I (3241) main: Turning LED ON
+I (2745) main: The LED Status: 0
 
-I (3742) main: The LED Status: 1
+I (3243) main: Turning LED ON
 
 I (3744) main: Turning LED OFF
 
-I (4741) main: Turning LED ON
+I (4245) main: The LED Status: 0
 
-I (5242) main: The LED Status: 1
+I (4743) main: Turning LED ON
 
-I (5244) main: Turning LED OFF
+I (5243) main: Turning LED OFF
 
-I (6241) main: Turning LED ON
+I (5743) main: The LED Status: 0
 
-I (6742) main: The LED Status: 1
+I (6243) main: Turning LED ON
 
 I (6744) main: Turning LED OFF
 
-I (7741) main: Turning LED ON
+I (7243) main: The LED Status: 0
 
-I (8242) main: The LED Status: 1
+I (7743) main: Turning LED ON
 
 I (8244) main: Turning LED OFF
 
+I (8745) main: The LED Status: 0
 
------------------------   3. Task2 -> Task1 -> Task3 --------------------------
+I (9243) main: Turning LED ON
 
-ets Jan  8 2013,rst cause:2, boot mode:(3,7)
+I (9744) main: Turning LED OFF
+
+I (10246) main: The LED Status: 0
+
+I (10744) main: Turning LED ON
+
+I (11245) main: Turning LED OFF
+
+I (11744) main: The LED Status: 0
+
+I (12244) main: Turning LED ON
+
+I (12745) main: Turning LED OFF
+
+I (13246) main: The LED Status: 0
+
+I (13744) main: Turning LED ON
+
+I (14244) main: Turning LED OFF
+
+I (14744) main: The LED Status: 0
+
+I (15244) main: Turning LED ON
+
+I (15745) main: Turning LED OFF
+
+I (16246) main: The LED Status: 0
+
+I (16744) main: Turning LED ON
+
+I (17245) main: Turning LED OFF
+
+I (17746) main: The LED Status: 0
+
+I (18244) main: Turning LED ON
+
+I (18745) main: Turning LED OFF
+
+I (19246) main: The LED Status: 0
+
+I (19744) main: Turning LED ON
+
+I (20246) main: Turning LED OFF
+
+
+-----------------------   2. Task1 -> Task3 -> Task2 --------------------------
+ets Jan  8 2013,rst cause:2, boot mode:(3,6)
 
 load 0x40100000, len 7536, room 16
 tail 0
@@ -230,10 +264,10 @@ tail 0
 chksum 0x10
 load 0x3ffe8420, len 3472, room 8
 tail 8
-chksum 0x2b
-csum 0x2b
+chksum 0x2a
+csum 0x2a
 I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
-I (43) boot: compile time 19:12:23
+I (43) boot: compile time 18:31:11
 I (44) boot: SPI Speed      : 40MHz
 I (50) boot: SPI Mode       : DIO
 I (57) boot: SPI Flash Size : 1MB
@@ -243,373 +277,571 @@ I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
 I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
 I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
 I (114) boot: End of partition table
-I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e64 ( 89700) map
-I (171) esp_image: segment 1: paddr=0x00025e7c vaddr=0x40225e74 size=0x05994 ( 22932) map
-I (182) esp_image: segment 2: paddr=0x0002b818 vaddr=0x3ffe8000 size=0x003dc (   988) load
-I (183) esp_image: segment 3: paddr=0x0002bbfc vaddr=0x40100000 size=0x00080 (   128) load
-I (196) esp_image: segment 4: paddr=0x0002bc84 vaddr=0x40100080 size=0x04558 ( 17752) load
-I (217) boot: Loaded app from partition at offset 0x10000
-I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x1672c ( 91948) map
+I (172) esp_image: segment 1: paddr=0x00026744 vaddr=0x4022673c size=0x05a04 ( 23044) map
+I (183) esp_image: segment 2: paddr=0x0002c150 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (184) esp_image: segment 3: paddr=0x0002c534 vaddr=0x40100000 size=0x00080 (   128) load
+I (197) esp_image: segment 4: paddr=0x0002c5bc vaddr=0x40100080 size=0x04590 ( 17808) load
+I (218) boot: Loaded app from partition at offset 0x10000
+I (239) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (241) main: Turning LED ON
+
+I (744) main: The LED Status: 1
+
+I (745) main: Turning LED OFF
+
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14029           2
+led_off_task    7587            1
+IDLE            0               <1
+status_message_ 1173            <1
+led_on_task     502685          74
+Tmr Svc         148685          22
+
+I (1743) main: Turning LED ON
+
+I (2244) main: The LED Status: 1
+
+I (2253) main: Turning LED OFF
+
+I (3243) main: Turning LED ON
+
+I (3744) main: The LED Status: 1
+
+I (3753) main: Turning LED OFF
+
+I (4743) main: Turning LED ON
+
+I (5243) main: The LED Status: 1
+
+I (5253) main: Turning LED OFF
+
+I (6243) main: Turning LED ON
+
+I (6744) main: The LED Status: 1
+
+I (6753) main: Turning LED OFF
+
+I (7743) main: Turning LED ON
+
+I (8244) main: The LED Status: 1
+
+I (8253) main: Turning LED OFF
+
+I (9243) main: Turning LED ON
+
+I (9744) main: The LED Status: 1
+
+I (9753) main: Turning LED OFF
+
+I (10744) main: Turning LED ON
+
+I (11245) main: The LED Status: 1
+
+I (11254) main: Turning LED OFF
+
+I (12244) main: Turning LED ON
+
+I (12745) main: The LED Status: 1
+
+I (12754) main: Turning LED OFF
+
+I (13744) main: Turning LED ON
+
+I (14244) main: The LED Status: 1
+
+I (14254) main: Turning LED OFF
+
+I (15244) main: Turning LED ON
+
+I (15745) main: The LED Status: 1
+
+I (15754) main: Turning LED OFF
+
+I (16744) main: Turning LED ON
+
+I (17244) main: The LED Status: 1
+
+I (17254) main: Turning LED OFF
+
+I (18244) main: Turning LED ON
+
+
+-----------------------   3. Task2 -> Task1 -> Task3 --------------------------
+ets Jan  8 2013,rst cause:2, boot mode:(3,6)
+
+load 0x40100000, len 7536, room 16
+tail 0
+chksum 0xa9
+load 0x3ffe8408, len 24, room 8
+tail 0
+chksum 0x10
+load 0x3ffe8420, len 3472, room 8
+tail 8
+chksum 0x2a
+csum 0x2a
+I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
+I (43) boot: compile time 18:31:11
+I (44) boot: SPI Speed      : 40MHz
+I (50) boot: SPI Mode       : DIO
+I (57) boot: SPI Flash Size : 1MB
+I (63) boot: Partition Table:
+I (68) boot: ## Label            Usage          Type ST Offset   Length
+I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
+I (114) boot: End of partition table
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x1672c ( 91948) map
+I (172) esp_image: segment 1: paddr=0x00026744 vaddr=0x4022673c size=0x05a04 ( 23044) map
+I (183) esp_image: segment 2: paddr=0x0002c150 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (184) esp_image: segment 3: paddr=0x0002c534 vaddr=0x40100000 size=0x00080 (   128) load
+I (197) esp_image: segment 4: paddr=0x0002c5bc vaddr=0x40100080 size=0x04590 ( 17808) load
+I (218) boot: Loaded app from partition at offset 0x10000
+I (239) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
 I (241) main: Turning LED ON
 
 I (744) main: Turning LED OFF
 
-I (1251) main: The LED Status: 0
-
-I (1741) main: Turning LED ON
-
-I (2242) main: Turning LED OFF
-
-I (2744) main: The LED Status: 0
-
-I (3741) main: Turning LED OFF
-
-I (4242) main: Turning LED ON
-
-I (4744) main: The LED Status: 1
-
-I (5241) main: Turning LED OFF
-
-I (5742) main: Turning LED ON
-
-I (6244) main: The LED Status: 1
-
-I (6741) main: Turning LED OFF
-
-I (7241) main: Turning LED ON
-
-I (7742) main: The LED Status: 1
-
-I (8241) main: Turning LED OFF
-
-I (8741) main: Turning LED ON
-
-I (9242) main: The LED Status: 1
-
-I (9741) main: Turning LED OFF
-
-I (10242) main: Turning LED ON
-
-I (10743) main: The LED Status: 1
-
-I (11242) main: Turning LED OFF
-
-I (11743) main: Turning LED ON
-
-I (12242) main: The LED Status: 1
-
-
------------------------   4. Task2 -> Task3 -> Task1 --------------------------
-
-ets Jan  8 2013,rst cause:2, boot mode:(3,6)
-
-load 0x40100000, len 7536, room 16
-tail 0
-chksum 0xa9
-load 0x3ffe8408, len 24, room 8
-tail 0
-chksum 0x10
-load 0x3ffe8420, len 3472, room 8
-tail 8
-chksum 0x2b
-csum 0x2b
-I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
-I (43) boot: compile time 19:12:23
-I (44) boot: SPI Speed      : 40MHz
-I (50) boot: SPI Mode       : DIO
-I (57) boot: SPI Flash Size : 1MB
-I (63) boot: Partition Table:
-I (68) boot: ## Label            Usage          Type ST Offset   Length
-I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
-I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
-I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
-I (114) boot: End of partition table
-I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e64 ( 89700) map
-I (171) esp_image: segment 1: paddr=0x00025e7c vaddr=0x40225e74 size=0x05994 ( 22932) map
-I (182) esp_image: segment 2: paddr=0x0002b818 vaddr=0x3ffe8000 size=0x003dc (   988) load
-I (183) esp_image: segment 3: paddr=0x0002bbfc vaddr=0x40100000 size=0x00080 (   128) load
-I (196) esp_image: segment 4: paddr=0x0002bc84 vaddr=0x40100080 size=0x04558 ( 17752) load
-I (217) boot: Loaded app from partition at offset 0x10000
-I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
-I (242) main: Turning LED OFF
-
-I (744) main: Turning LED ON
-
-I (751) main: The LED Status: 1
-
-I (1741) main: Turning LED OFF
-
-I (2242) main: The LED Status: 0
-
-I (2251) main: Turning LED ON
-
-I (3241) main: Turning LED OFF
-
-I (3742) main: The LED Status: 0
-
-I (3751) main: Turning LED ON
-
-I (4741) main: Turning LED OFF
-
-I (5241) main: The LED Status: 0
-
-I (5251) main: Turning LED ON
-
-I (6241) main: Turning LED OFF
-
-I (6741) main: The LED Status: 0
-
-I (6751) main: Turning LED ON
-
-I (7741) main: Turning LED OFF
-
-I (8242) main: The LED Status: 0
-
-I (8251) main: Turning LED ON
-
-I (9241) main: Turning LED OFF
-
-I (9741) main: The LED Status: 0
-
-I (9751) main: Turning LED ON
-
-I (10742) main: Turning LED OFF
-
-I (11243) main: The LED Status: 0
-
-I (11252) main: Turning LED ON
-
-
------------------------   5. Task3 -> Task2 -> Task1 --------------------------
-
-ets Jan  8 2013,rst cause:2, boot mode:(3,6)
-
-load 0x40100000, len 7536, room 16
-tail 0
-chksum 0xa9
-load 0x3ffe8408, len 24, room 8
-tail 0
-chksum 0x10
-load 0x3ffe8420, len 3472, room 8
-tail 8
-chksum 0x2b
-csum 0x2b
-I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
-I (43) boot: compile time 19:12:23
-I (44) boot: SPI Speed      : 40MHz
-I (50) boot: SPI Mode       : DIO
-I (57) boot: SPI Flash Size : 1MB
-I (63) boot: Partition Table:
-I (68) boot: ## Label            Usage          Type ST Offset   Length
-I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
-I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
-I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
-I (114) boot: End of partition table
-I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e64 ( 8                       9700) map
-I (171) esp_image: segment 1: paddr=0x00025e7c vaddr=0x40225e74 size=0x05994 ( 2                       2932) map
-I (182) esp_image: segment 2: paddr=0x0002b818 vaddr=0x3ffe8000 size=0x003dc (                          988) load
-I (183) esp_image: segment 3: paddr=0x0002bbfc vaddr=0x40100000 size=0x00080 (                          128) load
-I (196) esp_image: segment 4: paddr=0x0002bc84 vaddr=0x40100080 size=0x04558 ( 1                       7752) load
-I (217) boot: Loaded app from partition at offset 0x10000
-I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldow                       n: 0| Intr:0
-I (242) main: Turning LED OFF
-
-I (744) main: Turning LED ON
-
-I (751) main: The LED Status: 1
-
-I (1741) main: Turning LED OFF
-
-I (1751) main: The LED Status: 0
-
-I (2251) main: Turning LED ON
-
-I (2751) main: The LED Status: 1
-
-I (3241) main: Turning LED OFF
-
-I (3751) main: The LED Status: 0
-
-I (3752) main: Turning LED ON
-
-I (4741) main: Turning LED OFF
-
-I (4751) main: The LED Status: 0
-
-I (5251) main: Turning LED ON
-
-I (5751) main: The LED Status: 1
-
-I (6241) main: Turning LED OFF
-
-I (6751) main: The LED Status: 0
-
-I (6752) main: Turning LED ON
-
-I (7741) main: Turning LED OFF
-
-I (7751) main: The LED Status: 0
-
-I (8251) main: Turning LED ON
-
-I (8751) main: The LED Status: 1
-
-I (9241) main: Turning LED OFF
-
-I (9751) main: The LED Status: 0
-
-I (9752) main: Turning LED ON
-
-I (10742) main: Turning LED OFF
-
-I (10752) main: The LED Status: 0
-
-I (11252) main: Turning LED ON
-
-I (11752) main: The LED Status: 1
-
-I (12242) main: Turning LED OFF
-
-I (12752) main: The LED Status: 0
-
-I (12753) main: Turning LED ON
-
-I (13742) main: Turning LED OFF
-
-I (13752) main: The LED Status: 0
-
-I (14252) main: Turning LED ON
-
-I (14752) main: The LED Status: 1
-
-I (15242) main: Turning LED OFF
-
-I (15752) main: The LED Status: 0
-
-I (15753) main: Turning LED ON
-
-I (16742) main: Turning LED OFF
-
-I (16752) main: The LED Status: 0
-
-I (17252) main: Turning LED ON
-
-I (17752) main: The LED Status: 1
-
-I (18242) main: Turning LED OFF
-
-I (18752) main: The LED Status: 0
-
-Task watchdog got triggered.
-
-Guru Meditation Error: Core  0 panic'ed (Level1Interrupt). Exception was unhandled.
-
-
-
------------------------   6. Task3 -> Task1 -> Task2 --------------------------
-
-ets Jan  8 2013,rst cause:2, boot mode:(3,6)
-
-load 0x40100000, len 7536, room 16
-tail 0
-chksum 0xa9
-load 0x3ffe8408, len 24, room 8
-tail 0
-chksum 0x10
-load 0x3ffe8420, len 3472, room 8
-tail 8
-chksum 0x2b
-csum 0x2b
-I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
-I (43) boot: compile time 19:12:23
-I (44) boot: SPI Speed      : 40MHz
-I (50) boot: SPI Mode       : DIO
-I (57) boot: SPI Flash Size : 1MB
-I (63) boot: Partition Table:
-I (68) boot: ## Label            Usage          Type ST Offset   Length
-I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
-I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
-I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
-I (114) boot: End of partition table
-I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x15e64 ( 89700) map
-I (171) esp_image: segment 1: paddr=0x00025e7c vaddr=0x40225e74 size=0x05994 ( 22932) map
-I (182) esp_image: segment 2: paddr=0x0002b818 vaddr=0x3ffe8000 size=0x003dc (   988) load
-I (183) esp_image: segment 3: paddr=0x0002bbfc vaddr=0x40100000 size=0x00080 (   128) load
-I (196) esp_image: segment 4: paddr=0x0002bc84 vaddr=0x40100080 size=0x04558 ( 17752) load
-I (217) boot: Loaded app from partition at offset 0x10000
-I (238) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
-I (242) main: Turning LED ON
-
-I (744) main: The LED Status: 1
-
-I (746) main: Turning LED OFF
-
-I (1741) main: The LED Status: 0
-
-I (1742) main: Turning LED ON
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             13973           1
+status_message_ 0               <1
+IDLE            0               <1
+led_off_task    501187          42
+led_on_task     502685          43
+Tmr Svc         148685          12
+
+I (1263) main: The LED Status: 0
+
+I (1743) main: Turning LED ON
 
 I (2244) main: Turning LED OFF
 
-I (2741) main: The LED Status: 0
+I (2745) main: The LED Status: 0
 
-I (3241) main: Turning LED ON
+I (3743) main: Turning LED OFF
 
-I (3741) main: The LED Status: 1
+I (4244) main: Turning LED ON
 
-I (3742) main: Turning LED OFF
+I (4745) main: The LED Status: 1
 
-I (4741) main: The LED Status: 0
+I (5243) main: Turning LED OFF
 
-I (4742) main: Turning LED ON
+I (5744) main: Turning LED ON
 
-I (5244) main: Turning LED OFF
+I (6245) main: The LED Status: 1
 
-I (5741) main: The LED Status: 0
+I (6743) main: Turning LED OFF
 
-I (6241) main: Turning LED ON
+I (7244) main: Turning LED ON
 
-I (6741) main: The LED Status: 1
+I (7745) main: The LED Status: 1
 
-I (6742) main: Turning LED OFF
+I (8243) main: Turning LED OFF
 
-I (7741) main: The LED Status: 0
+I (8744) main: Turning LED ON
 
-I (7742) main: Turning LED ON
+I (9245) main: The LED Status: 1
 
-I (8244) main: Turning LED OFF
+I (9743) main: Turning LED OFF
 
-I (8741) main: The LED Status: 0
+I (10245) main: Turning LED ON
 
-I (9241) main: Turning LED ON
+I (10746) main: The LED Status: 1
 
-I (9741) main: The LED Status: 1
+I (11244) main: Turning LED OFF
 
-I (9742) main: Turning LED OFF
+I (11744) main: Turning LED ON
 
-I (10742) main: The LED Status: 0
+I (12244) main: The LED Status: 1
 
-I (10743) main: Turning LED ON
+I (12744) main: Turning LED OFF
 
-I (11242) main: Turning LED OFF
+I (13245) main: Turning LED ON
 
-I (11742) main: The LED Status: 0
+I (13744) main: The LED Status: 1
 
-I (24243) main: Turning LED ON
+I (14244) main: Turning LED OFF
 
-I (24743) main: The LED Status: 1
+I (14744) main: Turning LED ON
 
-I (24744) main: Turning LED OFF
+I (15245) main: The LED Status: 1
 
-I (25743) main: The LED Status: 0
+I (15744) main: Turning LED OFF
 
-I (25744) main: Turning LED ON
 
-I (26243) main: Turning LED OFF
+-----------------------   4. Task2 -> Task3 -> Task1 --------------------------
+ets Jan  8 2013,rst cause:2, boot mode:(3,6)
 
-I (26743) main: The LED Status: 0
+load 0x40100000, len 7536, room 16
+tail 0
+chksum 0xa9
+load 0x3ffe8408, len 24, room 8
+tail 0
+chksum 0x10
+load 0x3ffe8420, len 3472, room 8
+tail 8
+chksum 0x2a
+csum 0x2a
+I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
+I (43) boot: compile time 18:31:11
+I (44) boot: SPI Speed      : 40MHz
+I (50) boot: SPI Mode       : DIO
+I (57) boot: SPI Flash Size : 1MB
+I (63) boot: Partition Table:
+I (68) boot: ## Label            Usage          Type ST Offset   Length
+I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
+I (114) boot: End of partition table
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x1672c ( 91948) map
+I (172) esp_image: segment 1: paddr=0x00026744 vaddr=0x4022673c size=0x05a04 ( 23044) map
+I (183) esp_image: segment 2: paddr=0x0002c150 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (184) esp_image: segment 3: paddr=0x0002c534 vaddr=0x40100000 size=0x00080 (   128) load
+I (197) esp_image: segment 4: paddr=0x0002c5bc vaddr=0x40100080 size=0x04590 ( 17808) load
+I (218) boot: Loaded app from partition at offset 0x10000
+I (239) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (241) main: Turning LED OFF
 
-Task watchdog got triggered.
+I (744) main: Turning LED ON
 
-Guru Meditation Error: Core  0 panic'ed (Level1Interrupt). Exception was unhandled.
+I (753) main: The LED Status: 1
 
-    
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14027           2
+led_on_task     17520           2
+IDLE            0               <1
+status_message_ 1166            <1
+led_off_task    502761          73
+Tmr Svc         148685          21
+
+I (1743) main: Turning LED OFF
+
+I (2244) main: The LED Status: 0
+
+I (2245) main: Turning LED ON
+
+I (3243) main: Turning LED OFF
+
+I (3744) main: The LED Status: 0
+
+I (3745) main: Turning LED ON
+
+I (4743) main: Turning LED OFF
+
+I (5244) main: The LED Status: 0
+
+I (5245) main: Turning LED ON
+
+I (6243) main: Turning LED OFF
+
+I (6744) main: The LED Status: 0
+
+I (6745) main: Turning LED ON
+
+I (7743) main: Turning LED OFF
+
+I (8243) main: The LED Status: 0
+
+I (8244) main: Turning LED ON
+
+I (9243) main: Turning LED OFF
+
+I (9743) main: The LED Status: 0
+
+I (9744) main: Turning LED ON
+
+I (10744) main: Turning LED OFF
+
+I (11245) main: The LED Status: 0
+
+I (11246) main: Turning LED ON
+
+I (12244) main: Turning LED OFF
+
+I (12745) main: The LED Status: 0
+
+I (12746) main: Turning LED ON
+
+I (13744) main: Turning LED OFF
+
+I (14244) main: The LED Status: 0
+
+I (14245) main: Turning LED ON
+
+I (15244) main: Turning LED OFF
+
+I (15745) main: The LED Status: 0
+
+I (15746) main: Turning LED ON
+
+I (16744) main: Turning LED OFF
+
+I (17245) main: The LED Status: 0
+
+I (17246) main: Turning LED ON
+
+I (18244) main: Turning LED OFF
+
+I (18745) main: The LED Status: 0
+
+I (18746) main: Turning LED ON
+
+
+-----------------------   5. Task3 -> Task2 -> Task1 --------------------------
+ets Jan  8 2013,rst cause:2, boot mode:(3,6)
+
+load 0x40100000, len 7536, room 16
+tail 0
+chksum 0xa9
+load 0x3ffe8408, len 24, room 8
+tail 0
+chksum 0x10
+load 0x3ffe8420, len 3472, room 8
+tail 8
+chksum 0x2a
+csum 0x2a
+I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
+I (43) boot: compile time 18:31:11
+I (44) boot: SPI Speed      : 40MHz
+I (50) boot: SPI Mode       : DIO
+I (57) boot: SPI Flash Size : 1MB
+I (63) boot: Partition Table:
+I (68) boot: ## Label            Usage          Type ST Offset   Length
+I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
+I (114) boot: End of partition table
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x1672c ( 91948) map
+I (172) esp_image: segment 1: paddr=0x00026744 vaddr=0x4022673c size=0x05a04 ( 23044) map
+I (183) esp_image: segment 2: paddr=0x0002c150 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (184) esp_image: segment 3: paddr=0x0002c534 vaddr=0x40100000 size=0x00080 (   128) load
+I (197) esp_image: segment 4: paddr=0x0002c5bc vaddr=0x40100080 size=0x04590 ( 17808) load
+I (218) boot: Loaded app from partition at offset 0x10000
+I (239) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (241) main: Turning LED OFF
+
+I (744) main: Turning LED ON
+
+I (753) main: The LED Status: 1
+
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14028           2
+led_on_task     17520           2
+IDLE            0               <1
+status_message_ 1166            <1
+led_off_task    502761          73
+Tmr Svc         148685          21
+
+I (1743) main: Turning LED OFF
+
+I (1753) main: The LED Status: 0
+
+I (2244) main: Turning LED ON
+
+I (2753) main: The LED Status: 1
+
+I (3243) main: Turning LED OFF
+
+I (3744) main: Turning LED ON
+
+I (3753) main: The LED Status: 1
+
+I (4743) main: Turning LED OFF
+
+I (4753) main: The LED Status: 0
+
+I (5244) main: Turning LED ON
+
+I (5753) main: The LED Status: 1
+
+I (6243) main: Turning LED OFF
+
+I (6743) main: Turning LED ON
+
+I (6753) main: The LED Status: 1
+
+I (7743) main: Turning LED OFF
+
+I (7753) main: The LED Status: 0
+
+I (8244) main: Turning LED ON
+
+I (8753) main: The LED Status: 1
+
+I (9243) main: Turning LED OFF
+
+I (9744) main: Turning LED ON
+
+I (9753) main: The LED Status: 1
+
+I (10744) main: Turning LED OFF
+
+I (10754) main: The LED Status: 0
+
+I (11244) main: Turning LED ON
+
+I (11754) main: The LED Status: 1
+
+I (12244) main: Turning LED OFF
+
+I (12745) main: Turning LED ON
+
+I (12754) main: The LED Status: 1
+
+I (13744) main: Turning LED OFF
+
+I (13754) main: The LED Status: 0
+
+I (14245) main: Turning LED ON
+
+I (14754) main: The LED Status: 1
+
+I (15244) main: Turning LED OFF
+
+I (15745) main: Turning LED ON
+
+I (15754) main: The LED Status: 1
+
+I (16744) main: Turning LED OFF
+
+I (16754) main: The LED Status: 0
+
+I (17244) main: Turning LED ON
+
+I (17754) main: The LED Status: 1
+
+I (18244) main: Turning LED OFF
+
+I (18744) main: Turning LED ON
+
+I (18754) main: The LED Status: 1
+
+I (19744) main: Turning LED OFF
+
+I (19754) main: The LED Status: 0
+
+
+-----------------------   6. Task3 -> Task1 -> Task2 --------------------------
+ets Jan  8 2013,rst cause:2, boot mode:(3,6)
+
+load 0x40100000, len 7536, room 16
+tail 0
+chksum 0xa9
+load 0x3ffe8408, len 24, room 8
+tail 0
+chksum 0x10
+load 0x3ffe8420, len 3472, room 8
+tail 8
+chksum 0x2a
+csum 0x2a
+I (43) boot: ESP-IDF v3.4-71-g7085cc76-dirty 2nd stage bootloader
+I (43) boot: compile time 18:31:11
+I (44) boot: SPI Speed      : 40MHz
+I (50) boot: SPI Mode       : DIO
+I (57) boot: SPI Flash Size : 1MB
+I (63) boot: Partition Table:
+I (68) boot: ## Label            Usage          Type ST Offset   Length
+I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
+I (114) boot: End of partition table
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x1672c ( 91948) map
+I (172) esp_image: segment 1: paddr=0x00026744 vaddr=0x4022673c size=0x05a04 ( 23044) map
+I (183) esp_image: segment 2: paddr=0x0002c150 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (184) esp_image: segment 3: paddr=0x0002c534 vaddr=0x40100000 size=0x00080 (   128) load
+I (197) esp_image: segment 4: paddr=0x0002c5bc vaddr=0x40100080 size=0x04590 ( 17808) load
+I (218) boot: Loaded app from partition at offset 0x10000
+I (239) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0
+I (241) main: Turning LED ON
+
+I (744) main: The LED Status: 1
+
+I (745) main: Turning LED OFF
+
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14029           2
+led_off_task    7587            1
+IDLE            0               <1
+status_message_ 1174            <1
+led_on_task     502685          74
+Tmr Svc         148685          22
+
+I (1743) main: The LED Status: 0
+
+I (1744) main: Turning LED ON
+
+I (2253) main: Turning LED OFF
+
+I (2743) main: The LED Status: 0
+
+I (3243) main: Turning LED ON
+
+I (3743) main: The LED Status: 1
+
+I (3753) main: Turning LED OFF
+
+I (4743) main: The LED Status: 0
+
+I (4744) main: Turning LED ON
+
+I (5253) main: Turning LED OFF
+
+I (5743) main: The LED Status: 0
+
+I (6243) main: Turning LED ON
+
+I (6743) main: The LED Status: 1
+
+I (6753) main: Turning LED OFF
+
+I (7743) main: The LED Status: 0
+
+I (7744) main: Turning LED ON
+
+I (8253) main: Turning LED OFF
+
+I (8743) main: The LED Status: 0
+
+I (9243) main: Turning LED ON
+
+I (9743) main: The LED Status: 1
+
+I (9753) main: Turning LED OFF
+
+I (10744) main: The LED Status: 0
+
+I (10745) main: Turning LED ON
+
+I (11254) main: Turning LED OFF
+
+I (11744) main: The LED Status: 0
+
+I (12244) main: Turning LED ON
+
+I (12744) main: The LED Status: 1
+
+I (12754) main: Turning LED OFF
+
+I (13744) main: The LED Status: 0
+
+I (13745) main: Turning LED ON
+
+I (14254) main: Turning LED OFF
+
+I (14744) main: The LED Status: 0
+
+I (15244) main: Turning LED ON
+
+I (15744) main: The LED Status: 1
+
+I (15754) main: Turning LED OFF
+
+I (16744) main: The LED Status: 0
+
+I (16745) main: Turning LED ON
+

@@ -16,7 +16,7 @@
 
 #define GPIO_OUTPUT_IO 2 // LED
 
-#define ROUND_ROBIN 1
+#define ROUND_ROBIN 5
 
 //  Function Prototypes
 static void active_wait();                 // Function for actively waiting for 0.5 seconds
@@ -25,6 +25,8 @@ static void led_on(void *pvParam);         // Task function for turning on the L
 static void led_off(void *pvParam);        // Task function for turning off the LED (GPIO2 == 0)
 
 static const char *TAG = "main";
+
+void vTaskGetRunTimeStats(char *writeBuffer);
 
 SemaphoreHandle_t mutex_handle = NULL; // Handler for Mutex -> thing that controls which function access resource (GPIO2)
 
@@ -103,13 +105,29 @@ void app_main(void)
     // Creating Mutex
     mutex_handle = xSemaphoreCreateMutex();
 
+    // Run Time Stats Buffer
+    static char buffer[1500];
+
     // Give the Semaphore
     xSemaphoreGive(mutex_handle);
+
+    // Round-Robin Scheduling
+    // xTaskCreate(led_on, "led_on_task", 2048, NULL, ROUND_ROBIN, NULL);
+    // xTaskCreate(led_off, "led_off_task", 2048, NULL, ROUND_ROBIN, NULL);
+    // xTaskCreate(status_message, "status_message_task", 2048, NULL, ROUND_ROBIN, NULL);
 
     // RTOS Task Functions (3-1-2)
     xTaskCreate(led_on, "led_on_task", 2048, NULL, 2, NULL);
     xTaskCreate(led_off, "led_off_task", 2048, NULL, 1, NULL);
     xTaskCreate(status_message, "status_message_task", 2048, NULL, 3, NULL);
+
+    // Call Runtime stats function
+    vTaskGetRunTimeStats(buffer);
+
+    // print output of runtime function
+    printf("Task            Abs. Time       %%Time \n");
+    printf("---------------------------------------\n");
+    printf(buffer, "\n\n");
 
     // Heap memory management
     for (;;)
