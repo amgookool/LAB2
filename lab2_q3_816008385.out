@@ -1,3 +1,4 @@
+############################################### Execution 1 ########################################################
 ets Jan  8 2013,rst cause:2, boot mode:(3,6)
 
 load 0x40100000, len 7536, room 16
@@ -100,61 +101,4 @@ I (14752) MAIN: The LED Status: 1
 
 I (15242) MAIN: Turning LED OFF
 
-I (15752) MAIN: The LED Status: 0
-
-I (15753) MAIN: Turning LED ON
-
-I (16742) MAIN: Turning LED OFF
-
-I (16752) MAIN: The LED Status: 0
-
-I (17252) MAIN: Turning LED ON
-
-I (17752) MAIN: The LED Status: 1
-
-I (18242) MAIN: Turning LED OFF
-
-I (18752) MAIN: The LED Status: 0
-
-I (18753) MAIN: Turning LED ON
-
-I (19742) MAIN: Turning LED OFF
-
-I (19752) MAIN: The LED Status: 0
-
-I (20253) MAIN: Turning LED ON
-
-I (20753) MAIN: The LED Status: 1
-
-I (21243) MAIN: Turning LED OFF
-
-I (21753) MAIN: The LED Status: 0
-
-I (21754) MAIN: Turning LED ON
-
-I (22743) MAIN: Turning LED OFF
-
-I (22753) MAIN: The LED Status: 0
-
-I (23253) MAIN: Turning LED ON
-
-I (23753) MAIN: The LED Status: 1
-
-I (24243) MAIN: Turning LED OFF
-
-I (24753) MAIN: The LED Status: 0
-
-I (24754) MAIN: Turning LED ON
-
-I (25743) MAIN: Turning LED OFF
-
-I (25753) MAIN: The LED Status: 0
-
-I (26253) MAIN: Turning LED ON
-
-I (26753) MAIN: The LED Status: 1
-
-Task watchdog got triggered.
-
-Guru Meditation Error: Core  0 panic'ed (Level1Interrupt). Exception was unhandled.
-
+############################################### Execution 2 ########################################################

@@ -1,1 +1,1 @@
-f210fcb-dirty gpio v3.4-71-g7085cc76-dirty
+fe757b1-dirty gpio v3.4-71-g7085cc76-dirty
