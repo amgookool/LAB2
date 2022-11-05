@@ -59,17 +59,19 @@ void app_main(void)
         xTaskCreate(led_off, "led_off_task", 1024, NULL, MEDIUM_PRIORITY, NULL); // RTOS task instance to set GPIO2 to LOW
     }
     xTaskCreate(status_message, "status_message_task", 1024, NULL, HIGH_PRIORITY, NULL); // RTOS task instance to display status of GPIO2 pin
-    
+
     vTaskGetRunTimeStats(buffer);
-    
+
     // print output of runtime function
     printf("Task            Abs. Time       %%Time \n");
     printf("---------------------------------------\n");
     printf(buffer, "\n\n");
-    
+
     // Heap memory management
     for (;;)
-        ;
+    {
+        vApplicationIdleHook();
+    };
 }
 
 // Put processor to sleep for 1 second
