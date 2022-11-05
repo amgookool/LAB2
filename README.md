@@ -27,8 +27,11 @@ This is expected since the led_on and led_off task are sharing a resource (GPIO2
 Priority Inheritance scheduling refers to if a lower priority task holds a mutex token and a higher priority task tries to preempt a lower priority task, then the priority of the lower priority task that holds the mutex will raise to that of the higher priority task.
 
 The task are as follows:
+
 **Task 1 - led_on**
+
 **Task 2 - led_off**
+
 **Task 3 - status_message**
 
 Since there are 3 task functions, there is 3! = 3 X 2 X 1 = 6 possible combinations for setting task priority. These combinations are:
