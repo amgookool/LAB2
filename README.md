@@ -1,8 +1,19 @@
 # Discussion
 
-Absolute time refers to the total time the task has been in the running state.
+The following criteria is used for assessing system performance:
 
-Percentage Time refers to the percentage of the total processing time of the task.
+1. Task Priority Inversion - When a high priority task is preempted by a lower priority task.
+
+1. Execution of tasks always meet their deadlines
+
+1. Utilization - System utilization of each task.
+
+1. Jitter - The amount of variations in the timing of a task over the next iteration of a program or loop.
+
+**Note:**   
+  Absolute time refers to the total time the task has been in the running state.
+
+  Percentage Time refers to the percentage of the total processing time of the task.
 
 ## Round-Robin Scheduling
 
@@ -16,11 +27,14 @@ The Round-Robin Scheduling, each ready task runs turn by turn only in a cyclic q
 
 - The process that is preempted is added to the end of the queue.
 
-The priority for the 3 task functions (led_on, led_off, status_message) was given the same priority of 5. When reviewing the runtime statistics of the program, both the led_off and led_on task had similar absolute and percentage time with negligible difference. The status_message task had significantly less absolute time and percentage time than both the led_off and led_on task. Additionally, when reviewing the output of the we can trace back the order of which function is executed sequentially. The pattern of the output is as follows:
+It is seen that the round robin scheduling, the "led_on" task had the largest percentage of utilization and absolute execution time. The utilization percentage and absolute execution time of the "led_off" task was slightly less than than "led_on" task where the difference can be considered negligible. The "status_message" task utilization percentage was less than 1% while the "Tmr Svc" task had a percentage utilization of 12%. This was not expected since the "status_message" task was expected to utilize a higher percentage of the system utilization. The comparable utilization and execution time for the "led_off" and "led_on" was expected due to the nature of Round-Robin scheduling (tasks are given a time slice and are executed in a cyclic manner). Jitter cannot be discussed as there was no defined expected output for the scheduling and the outputs were the same when the program is executed multiple times.
+Based on the absolute time, all tasks meet their deadlines as all tasks successfully executed. Since task priority is equal for all tasks, there is no priority inversion and all tasks in the ready queue are executed provided that they are waiting to be executed.
+
+When reviewing the output of the we can trace back the order of which function is executed sequentially. The pattern of the output is as follows:
 
 led_on -> status_message -> led_off -> status_message -> led_on -> led_off -> repeat
 
-This is expected since the led_on and led_off task are sharing a resource (GPIO2) while the status_message task only checks the state of the pin.
+It is seen that the "led_on" task is executed first then followed by the "status_message" task. This was not expected since the "led_off" task was called after the "led_on" task in the "app_main" function. This behavior can be attributed to the active wait function used where both "led_on" and "led_off" tasks has to wait for the mutex to be released. This is shown since the "led_off" task is only executed called after the "status_message".
 
 ## Priority Inheritance
 
@@ -37,61 +51,77 @@ The task are as follows:
 Since there are 3 task functions, there is 3! = 3 X 2 X 1 = 6 possible combinations for setting task priority. These combinations are:
 
 - Task1 -> Task2 -> Task3
-
-  - When reviewing the runtime statistics of this sequence of function calls, the led_on task and led_off task had similar absolute and percentage time for their respective task with negligible difference between the values. However, the status message task had no absolute time for its execution time and less than 1% in the percentage time. However, the output of the program showcases the priority inheritance as the led_on task is executed first followed by the led_off task then the status_message task. The pattern of the output is as follows:
-
-    Task 1 -> Task 2 -> Task 3 -> repeat
-
-  - This was within expectation as the task's priority was set to execute as:
-
-    Task 1 -> Task 2 -> Task 3 -> repeat
-
-- Task1 -> Task3 -> Task2
-
-  - When reviewing the runtime statistics of this sequence of function calls, the led_on task had a significantly high absolute and percentage time while the led_off and status_message task was significantly less. The output of the program showcases the priority inheritance as the led_task is executed first followed by the status_message task and then the led_off task. The pattern of the output is as follows:
-
-    Task 1 -> Task 3 -> Task 2 -> repeat
-
-  - This was within expectation as the task's priority was set to execute as:
-
-    Task 1 -> Task 3 -> Task 2 -> repeat
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             13969           1
+status_message_ 0               <1
+IDLE            0               <1
+led_off_task    501192          42
+led_on_task     502685          43
+Tmr Svc         148685          12
 
 - Task2 -> Task1 -> Task3
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             13973           1
+status_message_ 0               <1
+IDLE            0               <1
+led_off_task    501187          42
+led_on_task     502685          43
+Tmr Svc         148685          12
+**************************************************
 
-  - When reviewing the runtime statistics of this sequence of function calls, both the led_on and led_off task has comparable absolute and percentage time with negligible difference between the values. in contrast, the status message task, had no absolute time and had was only utilized less than 1% of the time. The output of the program showcases priority inversion for tasks 1 and 2. This is because the led_on task was executed first followed by the led_off task and then the status_message task. The pattern of the output is as follows:
-
-    Task 1 -> Task 2 -> Task 3 -> repeat
-
-  - This was not within expectation as the task's priority was set to execute as:
-
-    Task2 -> Task1 -> Task3 -> repeat
-
-- Task2 -> Task3 -> Task1
-
-  - When reviewing the runtime statistics of this sequence of function calls, the led_off task had the highest absolute and percentage time than the other two tasks. The led_on task and the status_message task had significantly less absolute and percentage time. The output of the program showcases priority inversion as led_off task was executed first, followed by the led_on task and then the status_message task. The pattern of the output is as follows:
-
-    Task 2 -> Task 1 -> Task 3 -> repeat
-
-  - This was not within expectation as the task's priority was set to execute as:
-
-    Task2 -> Task3 -> Task1 -> repeat
-
-- Task3 -> Task2 -> Task1
-
-  - When reviewing the runtime statistics of this sequence of function calls, the led_off task had the highest absolute and percentage time than the other two tasks. The led_on task and the status_message task had significantly less absolute and percentage time. The output of the program showcases priority inversion as the led_off task was executed first, followed by the led_on task and then the status_message task. The pattern of the output of as follows:
-
-    Task 2 -> Task 1 -> Task 3 -> repeat
-
-- This was not within expectation as the task's priority was set to execute as:
-
-Task3 -> Task2 -> Task1 -> repeat
+- Task1 -> Task3 -> Task2
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14029           2
+led_off_task    7587            1
+IDLE            0               <1
+status_message_ 1173            <1
+led_on_task     502685          74
+Tmr Svc         148685          22
 
 - Task3 -> Task1 -> Task2
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14029           2
+led_off_task    7587            1
+IDLE            0               <1
+status_message_ 1174            <1
+led_on_task     502685          74
+Tmr Svc         148685          22
 
-  - When reviewing the runtime statistics of this sequence of function calls, the led_on task had the highest absolute and percentage time while both the status_message and led_off task were significantly less. The output of the program showcases priority inversion as the led_on task was executed first, followed by the status_message task and then the led_off task. The pattern of the output is as follows:
+**************************************************
 
-    Task 1 -> Task 3 -> Task 2 -> repeat
+- Task2 -> Task3 -> Task1
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14027           2
+led_on_task     17520           2
+IDLE            0               <1
+status_message_ 1166            <1
+led_off_task    502761          73
+Tmr Svc         148685          21
 
-- This was not within expectation as the task's priority was set to execute as:
+- Task3 -> Task2 -> Task1
+Task            Abs. Time       %Time
+---------------------------------------
+uiT             14028           2
+led_on_task     17520           2
+IDLE            0               <1
+status_message_ 1166            <1
+led_off_task    502761          73
+Tmr Svc         148685          21
 
-  Task3 -> Task1 -> Task2 -> repeat
+
+It is observed that (Task1 -> Task2 -> Task3) and (Task2 -> Task1 -> Task3) have similar absolute execution time and system utilization performance characteristics. 
+
+It is observed that (Task1 -> Task3 -> Task2) and (Task3 -> Task1 -> Task2) have similar absolute execution time and system utilization performance characteristics.
+
+It is observed that (Task2 -> Task3 -> Task1) and (Task3 -> Task2 -> Task1) have similar absolute execution time and system utilization performance characteristics.
+
+It is seen that all tasks were executed, therefore, all deadlines were met. 
+
+Jitter is not analyzed for priority inheritance since priorities are changed which can affect the order of execution of tasks. 
+
+Priority inversion would occur as both "led_on" and "led_off" functions preempts each other and the "status_message" task is executed while the mutex is held. In (Task 1 -> Task 2 -> Task 3) and (Task 1 -> Task 3 -> Task 2), it is observed from the output that system behaves in accordance to the priority set. The other task combinations showcased priority inversion as the task functions were not executed in accordance to its priority level.
