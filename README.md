@@ -74,4 +74,4 @@ I considered that laboratory exercise as the repository itself. I determined tha
 Each part is structured as a branch on the github repository. Hence to change between the different parts of the lab exercise, the switching of the appropriate branch is required.
 The branches of the repository are shown in the image below:
 
-[![github-branch-screenshot.png](https://i.postimg.cc/mrybcCv1/github-branch-screenshot.png)](https://postimg.cc/QBVLw9xj)
+![github-branch-lab2.png](https://i.postimg.cc/Yqsc58f5/github-branch-lab2.png)
