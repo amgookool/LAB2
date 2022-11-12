@@ -10,10 +10,10 @@ The following criteria is used for assessing system performance:
 
 1. Jitter - The amount of variations in the timing of a task over the next iteration of a program or loop.
 
-**Note:**   
-  Absolute time refers to the total time the task has been in the running state.
+**Note:**  
+ Absolute time refers to the total time the task has been in the running state.
 
-  Percentage Time refers to the percentage of the total processing time of the task.
+Percentage Time refers to the percentage of the total processing time of the task.
 
 ## Round-Robin Scheduling
 
@@ -27,7 +27,9 @@ The Round-Robin Scheduling, each ready task runs turn by turn only in a cyclic q
 
 - The process that is preempted is added to the end of the queue.
 
-It is seen that the round robin scheduling, the "led_on" task had the largest percentage of utilization and absolute execution time. The utilization percentage and absolute execution time of the "led_off" task was slightly less than than "led_on" task where the difference can be considered negligible. The "status_message" task utilization percentage was less than 1% while the "Tmr Svc" task had a percentage utilization of 12%. This was not expected since the "status_message" task was expected to utilize a higher percentage of the system utilization. The comparable utilization and execution time for the "led_off" and "led_on" was expected due to the nature of Round-Robin scheduling (tasks are given a time slice and are executed in a cyclic manner). Jitter cannot be discussed as there was no defined expected output for the scheduling and the outputs were the same when the program is executed multiple times.
+It is seen that the round robin scheduling, the "led_on" task had the largest percentage of utilization and absolute execution time. The utilization percentage and absolute execution time of the "led_off" task was slightly less than than "led_on" task where the difference can be considered negligible. The "status_message" task utilization percentage was less than 1% while the "Tmr Svc" task had a percentage utilization of 12%. This was not expected since the "status_message" task was expected to utilize a higher percentage of the system utilization.
+
+The comparable utilization and execution time for the "led_off" and "led_on" was expected due to the nature of Round-Robin scheduling (tasks are given a time slice and are executed in a cyclic manner). Jitter cannot be discussed as there was no defined expected output for the scheduling and the outputs were the same when the program is executed multiple times.
 Based on the absolute time, all tasks meet their deadlines as all tasks successfully executed. Since task priority is equal for all tasks, there is no priority inversion and all tasks in the ready queue are executed provided that they are waiting to be executed.
 
 When reviewing the output of the we can trace back the order of which function is executed sequentially. The pattern of the output is as follows:
@@ -51,77 +53,37 @@ The task are as follows:
 Since there are 3 task functions, there is 3! = 3 X 2 X 1 = 6 possible combinations for setting task priority. These combinations are:
 
 - Task1 -> Task2 -> Task3
-Task            Abs. Time       %Time
----------------------------------------
-uiT             13969           1
-status_message_ 0               <1
-IDLE            0               <1
-led_off_task    501192          42
-led_on_task     502685          43
-Tmr Svc         148685          12
+
+![Task1 -> Task2 -> Task3](https://i.postimg.cc/264nnHTg/task-123.png)
 
 - Task2 -> Task1 -> Task3
-Task            Abs. Time       %Time
----------------------------------------
-uiT             13973           1
-status_message_ 0               <1
-IDLE            0               <1
-led_off_task    501187          42
-led_on_task     502685          43
-Tmr Svc         148685          12
-**************************************************
+
+![Task2 -> Task1 -> Task3](https://i.postimg.cc/Y0Rgsh53/task-213.png)
 
 - Task1 -> Task3 -> Task2
-Task            Abs. Time       %Time
----------------------------------------
-uiT             14029           2
-led_off_task    7587            1
-IDLE            0               <1
-status_message_ 1173            <1
-led_on_task     502685          74
-Tmr Svc         148685          22
+
+![Task1 -> Task3 -> Task2](https://i.postimg.cc/mkBCjQ5k/task-132.png)
 
 - Task3 -> Task1 -> Task2
-Task            Abs. Time       %Time
----------------------------------------
-uiT             14029           2
-led_off_task    7587            1
-IDLE            0               <1
-status_message_ 1174            <1
-led_on_task     502685          74
-Tmr Svc         148685          22
 
-**************************************************
+![Task3 -> Task1 -> Task2](https://i.postimg.cc/59Sw0RXC/task-312.png)
 
 - Task2 -> Task3 -> Task1
-Task            Abs. Time       %Time
----------------------------------------
-uiT             14027           2
-led_on_task     17520           2
-IDLE            0               <1
-status_message_ 1166            <1
-led_off_task    502761          73
-Tmr Svc         148685          21
+
+![Task2 -> Task3 -> Task1](https://i.postimg.cc/L6yLkgB4/task-231.png)
 
 - Task3 -> Task2 -> Task1
-Task            Abs. Time       %Time
----------------------------------------
-uiT             14028           2
-led_on_task     17520           2
-IDLE            0               <1
-status_message_ 1166            <1
-led_off_task    502761          73
-Tmr Svc         148685          21
 
+![Task3 -> Task2 -> Task1](https://i.postimg.cc/3Jr2DFGb/task-321.png)
 
-It is observed that (Task1 -> Task2 -> Task3) and (Task2 -> Task1 -> Task3) have similar absolute execution time and system utilization performance characteristics. 
+It is observed that (Task1 -> Task2 -> Task3) and (Task2 -> Task1 -> Task3) have similar absolute execution time and system utilization performance characteristics.
 
 It is observed that (Task1 -> Task3 -> Task2) and (Task3 -> Task1 -> Task2) have similar absolute execution time and system utilization performance characteristics.
 
 It is observed that (Task2 -> Task3 -> Task1) and (Task3 -> Task2 -> Task1) have similar absolute execution time and system utilization performance characteristics.
 
-It is seen that all tasks were executed, therefore, all deadlines were met. 
+It is seen that all tasks were executed, therefore, all deadlines were met.
 
-Jitter is not analyzed for priority inheritance since priorities are changed which can affect the order of execution of tasks. 
+Jitter is not analyzed for priority inheritance since priorities are changed which can affect the order of execution of tasks.
 
 Priority inversion would occur as both "led_on" and "led_off" functions preempts each other and the "status_message" task is executed while the mutex is held. In (Task 1 -> Task 2 -> Task 3) and (Task 1 -> Task 3 -> Task 2), it is observed from the output that system behaves in accordance to the priority set. The other task combinations showcased priority inversion as the task functions were not executed in accordance to its priority level.
